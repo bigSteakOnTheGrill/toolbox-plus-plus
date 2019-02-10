@@ -1,0 +1,68 @@
+﻿/*
+ * styles for screen
+ */
+body {
+	background: #FFFFFF;
+	color: #000000;
+	font-family: Segoe UI, LucidaGrande, sans-serif;
+	font-size: 10pt;
+	font-style: normal;
+	font-weight: normal;
+	/*
+	margin-top: 0;
+	margin-bottom: 0;
+	margin-left: 0;
+	margin-right: 0;
+	width: 100%;
+	*/
+}
+h1 {
+	border-style: none;
+	font-size: 14pt;
+	background-color: #999999;
+	color: #FFFFFF;
+	padding: 0.5em;
+}
+h2 {
+	font-size: 12pt;
+	background-color: #999999;
+	color: #FFFFFF;
+	padding: 0.3em;
+}
+
+.paramTable th {
+	/*color: #2981BC;
+	/* font-size: 70%; */
+	background-color: #CCCCCC;
+	margin-top: 0;
+	margin-bottom: 0;
+	padding-right: 20px;
+	text-align: left;
+	valign: top;
+}
+.paramTable td {
+	/*color: #2981BC;
+	/* font-size: 70%; */
+	background-color: #FFFFFF;
+	margin-top: 0;
+	margin-bottom: 0;
+	padding-right: 20px;
+	text-align: left;
+	valign: top;
+}
+
+a.link2example {
+	color: #555555;
+	cursor: pointer;
+	text-decoration: underline;
+}
+
+.paramExamples {
+	/*
+	color: #555555;
+	cursor: pointer;
+	text-decoration: underline;
+	padding: 0.3em;
+	*/
+
+}
