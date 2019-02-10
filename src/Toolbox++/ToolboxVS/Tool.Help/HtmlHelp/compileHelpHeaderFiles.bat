@@ -34,6 +34,7 @@ set indexFile=%fileBasename%_compiledAliases.txt
 set mapFile=%fileBasename%_compiledMap.txt
 set headerFile=%fileBasename%HelpIDsInclude.h
 set cppFile=%fileBasename%HelpIDsInclude.cpp
+set cppFileChar=%fileBasename%HelpIDsIncludeChar.cpp
 set IDIndexFile=%fileBasename%HelpIDsIndex.txt
 
 %myDrive%
@@ -65,6 +66,11 @@ echo > "%cppFile%" //
 echo >>"%cppFile%" // This file was created by %prgname%.
 echo >>"%cppFile%" // %myFulltime%
 echo >>"%cppFile%" //
+
+echo > "%cppFileChar%" //
+echo >>"%cppFileChar%" // This file was created by %prgname%.
+echo >>"%cppFileChar%" // %myFulltime%
+echo >>"%cppFileChar%" //
 
 echo.# > "%IDIndexFile%"
 echo.# This file was created by %prgname%. >>"%IDIndexFile%"
@@ -105,7 +111,7 @@ set upperCaseResult__=%~1
 set upperCaseWord__=%~2
 for %%a in ("a=A" "b=B" "c=C" "d=D" "e=E" "f=F" "g=G" "h=H" "i=I"
         "j=J" "k=K" "l=L" "m=M" "n=N" "o=O" "p=P" "q=Q" "r=R"
-        "s=S" "t=T" "u=U" "v=V" "w=W" "x=X" "y=Y" "z=Z") do (
+        "s=S" "t=T" "u=U" "v=V" "w=W" "x=X" "y=Y" "z=Z" "-=_" ".=_") do (
 call set upperCaseWord__=%%upperCaseWord__:%%~a%%
 )
 set %upperCaseResult__%=%upperCaseWord__%
@@ -119,7 +125,7 @@ set lowerCaseResult__=%~1
 set lowerCaseWord__=%~2
 for %%a in ("A=a" "B=b" "C=c" "D=d" "E=e" "F=f" "G=g" "H=h" "I=i"
         "J=j" "K=k" "L=l" "M=m" "N=n" "O=o" "P=p" "Q=q" "R=r"
-        "S=s" "T=t" "U=u" "V=v" "W=w" "X=x" "Y=y" "Z=z") do (
+        "S=s" "T=t" "U=u" "V=v" "W=w" "X=x" "Y=y" "Z=z" "-=_" ".=_") do (
 call set lowerCaseWord__=%%lowerCaseWord__:%%~a%%
 )
 set %lowerCaseResult__%=%lowerCaseWord__%
@@ -147,13 +153,15 @@ rem echo %helpIDName__%
 call :upperCaseFirst helpIDName__ "%helpIDName__%
 rem echo %helpIDName__%
 rem pause
-set helpIDName__=%helpIDName__:.html=%
+rem set helpIDName__=%helpIDName__:.html=%
+set helpIDName__=%helpIDName__:_html=%
 echo.   %basename__%
 echo htmlHelpID_%helpIDName__% =%basename__%     >>"%indexFile%"
 echo #define htmlHelpID_%helpIDName__% %counter% >>"%mapFile%"
 echo %helpIDName__% %counter% >>"%IDIndexFile%"
 echo.    en%helpIDName__% = %counter%,           >>"%headerFile%"
 echo.    {%helpEnumPrefix%::en%helpIDName__%, L"%helpIDName__%"}, >>"%cppFile%"
+echo.    {%helpEnumPrefix%::en%helpIDName__%,  "%helpIDName__%"}, >>"%cppFileChar%"
 
 set /A counter=%counter% + %stepsize%
 rem pause

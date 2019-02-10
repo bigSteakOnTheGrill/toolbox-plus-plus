@@ -1,8 +1,8 @@
 # 
 # This file was created by compileHelpHeaderFiles.bat. 
-# 02/09/2019 18:34:17.84 
+# 02/10/2019  7:32:56.41 
 # 
-Compilehelp-bat 1000 
+Compilehelp_bat 1000 
 Index 1010 
 License 1020 
 Neededsoftware 1030 
